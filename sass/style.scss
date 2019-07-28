@@ -16,10 +16,12 @@ header {
     position: relative;
     z-index: 2;
     text-align: center;
+
     img {
       align-self: center;
       justify-self: center;
     }
+
     #plus {
       position: absolute;
       right: 0;
@@ -112,6 +114,20 @@ main {
 
       &:hover {
         outline: #f7931d solid 4px;
+      }
+
+      div {
+        width: 90%;
+        height: 45%;
+        border: 1px red dotted;
+        margin-left: 5%;
+        margin-top: 5%;
+        background-size: cover;
+        // background-image: url("https://preview.redd.it/o452m97qvhc31.jpg?auto=webp&s=64b3b4bc6212bfd1b1b720b358a465e5d2897a70");
+
+        img {
+          display: none;
+        }
       }
     }
   }

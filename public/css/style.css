@@ -89,3 +89,12 @@ main {
       box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.5); }
       main #container .card:hover {
         outline: #f7931d solid 4px; }
+      main #container .card div {
+        width: 90%;
+        height: 45%;
+        border: 1px red dotted;
+        margin-left: 5%;
+        margin-top: 5%;
+        background-size: cover; }
+        main #container .card div img {
+          display: none; }
