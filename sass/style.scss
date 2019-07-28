@@ -111,23 +111,52 @@ main {
       background: white;
       margin: 10px;
       box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.5);
+      padding: 5%;
+      font-family: "Oswald", sans-serif;
+      color: #434345;
 
       &:hover {
         outline: #f7931d solid 4px;
       }
 
       div {
-        width: 90%;
+        width: 100%;
         height: 45%;
-        border: 1px red dotted;
-        margin-left: 5%;
-        margin-top: 5%;
         background-size: cover;
-        // background-image: url("https://preview.redd.it/o452m97qvhc31.jpg?auto=webp&s=64b3b4bc6212bfd1b1b720b358a465e5d2897a70");
 
         img {
           display: none;
         }
+      }
+
+      h3 {
+        font-family: inherit;
+        color: inherit;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 20px;
+        max-height: 40px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      p {
+        color: #898a8d;
+        font-size: 14px;
+        margin-top: -15px;
+        margin-bottom: 18px;
+      }
+
+      .postContent {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 14px;
+        max-height: 59px;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        color: inherit;
       }
     }
   }

@@ -12,6 +12,8 @@ const requestsModule = function() {
     let oReqFunction = function() {
       let obj = JSON.parse(this.responseText);
 
+      console.log(obj);
+
       let card = document.createElement("div");
       card.className = "card";
 
@@ -19,20 +21,32 @@ const requestsModule = function() {
       imageDiv.style.backgroundImage =
         "url('" +
         fixURL(obj.data.children[1].data.preview.images[0].source.url) +
-        "');";
+        "')";
 
       card.appendChild(imageDiv);
-      container.appendChild(card);
 
-      console.log(obj);
-      console.log(obj.data.children[1].data.title);
-      console.log(
-        fixURL(obj.data.children[1].data.preview.images[0].source.url)
-      );
-      console.log(obj.data.children[1].data.author);
-      console.log(moment.unix(obj.data.children[1].data.created).fromNow());
-      console.log(obj.data.children[1].data.ups);
-      console.log(obj.data.children[5].data.selftext);
+      let h3 = document.createElement("h3");
+      h3.innerHTML = obj.data.children[1].data.title;
+      card.appendChild(h3);
+
+      let additionalInfo = document.createElement("p");
+      additionalInfo.innerHTML =
+        "by " +
+        obj.data.children[1].data.author +
+        " &middot; " +
+        moment.unix(obj.data.children[1].data.created).fromNow() +
+        " &middot; " +
+        +obj.data.children[1].data.ups +
+        " Upvotes";
+      card.appendChild(additionalInfo);
+
+      let postContent = document.createElement("p");
+      postContent.className = "postContent";
+      postContent.innerHTML = obj.data.children[5].data.selftext;
+
+      card.appendChild(postContent);
+
+      container.appendChild(card);
     };
 
     oReq.addEventListener("load", oReqFunction);
