@@ -100,9 +100,9 @@ main {
   #container {
     display: flex;
     flex-direction: row;
-    max-width: 590px;
+    max-width: 700px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 20px;
 
     .card {
@@ -158,6 +158,17 @@ main {
         -webkit-box-orient: vertical;
         color: inherit;
       }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  main #container {
+    width: 99vw;
+    background-color: green;
+
+    .card {
+      width: inherit;
     }
   }
 }

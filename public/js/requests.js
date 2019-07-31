@@ -11,42 +11,49 @@ const requestsModule = function() {
 
     let oReqFunction = function() {
       let obj = JSON.parse(this.responseText);
+      let arr = obj.data.children;
 
-      console.log(obj);
+      for (let i = 1; i < arr.length; i++) {
+        let objData = obj.data.children[i].data;
+        let card = document.createElement("div");
+        card.className = "card";
 
-      let card = document.createElement("div");
-      card.className = "card";
+        let imageDiv = document.createElement("div");
+        if (objData.preview) {
+          imageDiv.style.backgroundImage =
+            "url('" + fixURL(objData.preview.images[0].source.url) + "')";
+        } else {
+          imageDiv.style.backgroundImage =
+            "url('https://via.placeholder.com/223x126')";
+        }
 
-      let imageDiv = document.createElement("div");
-      imageDiv.style.backgroundImage =
-        "url('" +
-        fixURL(obj.data.children[1].data.preview.images[0].source.url) +
-        "')";
+        card.appendChild(imageDiv);
 
-      card.appendChild(imageDiv);
+        let h3 = document.createElement("h3");
+        h3.innerHTML = objData.title;
+        card.appendChild(h3);
 
-      let h3 = document.createElement("h3");
-      h3.innerHTML = obj.data.children[1].data.title;
-      card.appendChild(h3);
+        let additionalInfo = document.createElement("p");
+        additionalInfo.innerHTML =
+          "by " +
+          objData.author +
+          " &middot; " +
+          moment.unix(objData.created).fromNow() +
+          " &middot; " +
+          +objData.ups +
+          " Upvotes";
+        card.appendChild(additionalInfo);
 
-      let additionalInfo = document.createElement("p");
-      additionalInfo.innerHTML =
-        "by " +
-        obj.data.children[1].data.author +
-        " &middot; " +
-        moment.unix(obj.data.children[1].data.created).fromNow() +
-        " &middot; " +
-        +obj.data.children[1].data.ups +
-        " Upvotes";
-      card.appendChild(additionalInfo);
+        console.log(objData.selftext);
 
-      let postContent = document.createElement("p");
-      postContent.className = "postContent";
-      postContent.innerHTML = obj.data.children[5].data.selftext;
+        let postContent = document.createElement("p");
+        postContent.className = "postContent";
+        postContent.innerHTML = objData.selftext;
 
-      card.appendChild(postContent);
+        card.appendChild(postContent);
 
-      container.appendChild(card);
+        container.appendChild(card);
+      }
     };
 
     oReq.addEventListener("load", oReqFunction);
