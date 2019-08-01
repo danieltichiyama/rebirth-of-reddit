@@ -75,17 +75,15 @@ main {
   background-repeat: repeat;
   min-height: 82vh; }
   main #container {
-    display: flex;
-    flex-direction: row;
-    max-width: 700px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: flex-start;
-    margin-top: 20px; }
+    margin-top: 40px; }
     main #container a {
       text-decoration: none; }
       main #container a .card {
-        height: 280px;
-        width: 250px;
+        height: 400px;
+        width: 325px;
         background: white;
         margin: 10px;
         box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.5);
@@ -99,35 +97,77 @@ main {
           height: 45%;
           background-size: cover; }
           main #container a .card div img {
-            display: none; }
+            opacity: 0;
+            width: 100%;
+            height: 100%; }
         main #container a .card h3 {
           font-family: inherit;
           color: inherit;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
-          line-height: 20px;
-          max-height: 40px;
+          line-height: 25px;
+          max-height: 55px;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical; }
         main #container a .card p {
           color: #898a8d;
-          font-size: 14px;
+          font-size: 15px;
           margin-top: -15px;
-          margin-bottom: 18px; }
+          margin-bottom: 25px; }
         main #container a .card .postContent {
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
-          line-height: 14px;
-          max-height: 59px;
+          line-height: 25px;
+          max-height: 100px;
           -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
           color: inherit; }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 480px) {
+  header {
+    width: 100vw; }
+    header #headerTop {
+      width: 100%;
+      background: none;
+      justify-content: flex-start;
+      width: 480px; }
+      header #headerTop img {
+        margin-left: 10px; }
+      header #headerTop #plus {
+        position: static;
+        margin-left: auto; }
   main #container {
     width: 99vw;
-    background-color: green; }
-    main #container .card {
-      width: inherit; } }
+    grid-template-columns: 1fr;
+    justify-items: center; }
+    main #container a .card {
+      width: 86%;
+      height: 450px; }
+      main #container a .card h3 {
+        font-family: inherit;
+        font-size: xx-large;
+        color: inherit;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 45px;
+        max-height: 45px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-top: 20px; }
+      main #container a .card p {
+        color: #898a8d;
+        font-size: 20px;
+        margin-top: -30px;
+        margin-bottom: 30px; }
+      main #container a .card .postContent {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 25px;
+        max-height: 110px;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        color: inherit; } }
