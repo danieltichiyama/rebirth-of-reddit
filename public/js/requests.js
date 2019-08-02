@@ -1,5 +1,4 @@
 "use strict";
-``;
 
 const requestsModule = function() {
   let fixURL = function(str) {
@@ -15,7 +14,13 @@ const requestsModule = function() {
 
     let oReqFunction = function() {
       let obj = JSON.parse(this.responseText);
-      nextAPI = api + "?after=" + obj.data.after;
+
+      if (api.indexOf("?after") !== -1) {
+        nextAPI =
+          api.slice(0, api.indexOf("?after")) + "?after=" + obj.data.after;
+      } else {
+        nextAPI = api + "?after=" + obj.data.after;
+      }
       let arr = obj.data.children;
 
       for (let i = 1; i < arr.length; i++) {
@@ -64,8 +69,7 @@ const requestsModule = function() {
         if (objData.selftext) {
           postContent.innerHTML = objData.selftext;
         } else {
-          postContent.innerHTML =
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+          imageDiv.style.height = "75%";
         }
         card.appendChild(postContent);
 
@@ -80,7 +84,7 @@ const requestsModule = function() {
     oReq.open("GET", api);
     oReq.send();
 
-    return nextAPI;
+    console.log(nextAPI);
   };
 
   let loadNext = function() {

@@ -5,7 +5,7 @@ header {
   height: auto;
   width: 100vw; }
   header #headerTop {
-    background: url(/public/assets/header_bg.svg);
+    background: url(/assets/header_bg.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: white;
@@ -95,7 +95,9 @@ main {
         main #container a .card div {
           width: 100%;
           height: 45%;
-          background-size: cover; }
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat; }
           main #container a .card div img {
             opacity: 0;
             width: 100%;
