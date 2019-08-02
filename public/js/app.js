@@ -49,3 +49,9 @@ window.addEventListener("scroll", function() {
     requests.loadNext();
   }
 });
+
+//add func to open a card in the website, new div, animated
+//add func to search for a subreddit
+//add a loading screen for when the user reaches the bottom of the page
+//add a `top` button for quick navigation
+//add a save card feature to save a card to a list
