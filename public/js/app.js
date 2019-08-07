@@ -39,7 +39,6 @@ foodPorn.addEventListener("click", function() {
 
 random.addEventListener("click", function() {
   let randomNumber = Math.floor(Math.random() * APIarr.length);
-  console.log(randomNumber);
   container.innerHTML = "";
   requests.requestAPI(stdAPIurl + APIarr[randomNumber] + ".json");
 });

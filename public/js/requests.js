@@ -83,12 +83,9 @@ const requestsModule = function() {
 
     oReq.open("GET", api);
     oReq.send();
-
-    console.log(nextAPI);
   };
 
   let loadNext = function() {
-    console.log("working");
     requestAPI(nextAPI);
   };
 
